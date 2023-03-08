@@ -1,0 +1,40 @@
+doctype html
+// This is a static file
+// served from your routes in server.js
+// You might want to try something fancier:
+// html/nunjucks docs: https://mozilla.github.io/nunjucks/
+// pug: https://pugjs.org/
+// haml: http://haml.info/
+// hbs(handlebars): http://handlebarsjs.com/
+head
+    title Welcome to Glitch!
+    meta(name='description' content='A cool thing made with Glitch')
+    link#favicon(rel='icon' href='https://glitch.com/edit/favicon-app.ico' type='image/x-icon')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    // import the webpage's stylesheet
+    link(rel='stylesheet' href='/style.css')
+    // import the webpage's client-side javascript file
+    script(src='/client.js' defer='')
+header
+    h1
+        | A letter to Santa
+main
+    p.bold Ho ho ho, what you want for christma?
+    |     who are you?
+    form(method='post')
+        input(name='userid' placeholder='charlie.brown')
+        |         what do you want for christmas?
+        textarea(name='wish' rows='10' cols='45' maxlength='110' placeholder='Gifts!')
+        br
+        button#submit-letter(type='submit') Send
+footer
+    | Made with
+    a(href='https://glitch.com') Glitch
+    | !
+//
+  include the Glitch button to show what the webpage is about and
+  to make it easier for folks to view source and remix
+.glitchButton(style='position:fixed;top:20px;right:20px;')
+script(src='https://button.glitch.me/button.js')
