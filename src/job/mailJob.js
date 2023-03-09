@@ -1,6 +1,6 @@
 class MailJob {
-  delay = 0;
-  mailSender = null;
+  // delay = 0;
+  // mailSender = null;
 
   constructor(delay, mailSender) {
     this.delay = delay;
