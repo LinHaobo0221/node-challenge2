@@ -8,7 +8,7 @@ class MailJob {
   }
 
   start() {
-    if(!this.mailSender || this.delay === 0) {
+    if(!this.mailSender || !this.delay) {
       console.log("jos start failed");
       return;
     }
