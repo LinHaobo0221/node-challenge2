@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const pendingData = require("../memoryStore")
+const pendingData = require("../../memoryStore")
 const dotenv = require('dotenv')
 
 dotenv.config();
@@ -21,22 +21,18 @@ const commonOption = {
   subject: 'Please check All Pending Wishes',
 };
 
-const getMailOpt = () => {
+const getMailBody = () => {
   return {
     ...commonOption,
     text: pendingData.map(wish => JSON.stringify(wish)).join('\n')
   }
 };
 
-const mailer = (seconds) => {
-  return {
-    start: () => {
-      setInterval(() => {
-        console.log(getMailOpt())
-        transporter.sendMail(getMailOpt()).then(() => console.log('mail send success')).catch((e) => console.log(e))
-      }, seconds * 1000);
-    }
-  }
+const send = () => {
+  console.log(getMailBody());
+  transporter.sendMail(getMailBody()).then(() => console.log('mail send success')).catch((e) => console.log(e));
 };
 
-module.exports = mailer;
+module.exports = {
+  send
+};
